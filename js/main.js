@@ -42,6 +42,26 @@ window.addEventListener('load', function() {
 });
 
 
+let icon = document.getElementById("icon");
+let body = document.getElementById("body");
+let cards = document.querySelectorAll(".card");
+let buttons = document.querySelectorAll(".btn-outline-primary");
+let navbar = document.querySelector(".navbar");
+let navLinks = document.querySelectorAll(".nav-link");
+
+icon.onclick = function() {
+    body.classList.toggle("dark-mode");
+    cards.forEach(card => card.classList.toggle("dark-mode"));
+    buttons.forEach(button => button.classList.toggle("dark-mode"));
+    navbar.classList.toggle("dark-mode");
+    navLinks.forEach(link => link.classList.toggle("dark-mode"));
+    if (body.classList.contains("dark-mode")) {
+        icon.src = "images/sunny.png";
+    } else {
+        icon.src = "images/half-moon.png";
+    }
+}
+
 
 
 // function startAnimations() {

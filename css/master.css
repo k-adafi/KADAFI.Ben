@@ -1,5 +1,5 @@
 body {
-    background-color: #d7d7d7;
+    background-color: #c5c5c5;
     color: black;
 }
 
@@ -44,5 +44,37 @@ body {
   
 .zoom:hover {
     transform: scale(1.1); /* Zoom de 110% */
+}
+
+#icon{
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: #ffffff;
+}
+
+/* master.css */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar.dark-mode {
+    background-color: #333333;
+}
+
+.nav-link.dark-mode {
+    color: #ffffff;
+}
+
+.card.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.btn-outline-primary.dark-mode {
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
