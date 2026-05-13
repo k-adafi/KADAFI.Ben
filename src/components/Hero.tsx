@@ -158,7 +158,7 @@ const Hero = () => {
                   </motion.div>
                 </motion.a> */}
                 <motion.a 
-                  href="https://kadafi-ben-cv.vercel.app/"
+                  href="https://kadafi-ben-cv.vercel.app/" target='_blank'
                   onClick={(e) => handleNavClick(e, 'https://kadafi-ben-cv.vercel.app/')}
                   className="btn-primary flex items-center justify-center gap-2 text-sm font-semibold px-8 py-3"
                   whileHover={{ scale: 1.05 }}
