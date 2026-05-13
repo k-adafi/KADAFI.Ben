@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageCore';
+import FadeInSection from './FadeInSection';
 
 const Education = () => {
   const { t } = useLanguage();
@@ -7,66 +9,140 @@ const Education = () => {
       year: t('education.items.orangeCV.year'),
       title: t('education.items.orangeCV.title'),
       institution: t('education.items.orangeCV.institution'),
-      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar"
+      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar",
+      direction: "left"
     },
     {
       year: t('education.items.master.year'),
       title: t('education.items.master.title'),
       institution: t('education.items.master.institution'),
-      link: "https://www.univ-toamasina.mg"
+      link: "https://www.univ-toamasina.mg",
+      direction: "up"
     },
     {
       year: t('education.items.licence.year'),
       title: t('education.items.licence.title'),
-      institution: t('education.items.licence.institution')
+      institution: t('education.items.licence.institution'),
+      direction: "right"
     },
     {
       year: t('education.items.opendata.year'),
       title: t('education.items.opendata.title'),
       institution: t('education.items.opendata.institution'),
-      link: "https://www.association-maidi.mg/"
+      link: "https://www.association-maidi.mg/",
+      direction: "down"
     },
     {
       year: t('education.items.orangeUX.year'),
       title: t('education.items.orangeUX.title'),
       institution: t('education.items.orangeUX.institution'),
-      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar"
+      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar",
+      direction: "left"
     },
     {
       year: t('education.items.bacc.year'),
       title: t('education.items.bacc.title'),
-      institution: t('education.items.bacc.institution')
+      institution: t('education.items.bacc.institution'),
+      direction: "up"
     }
   ];
 
-  return (
-    <section id="education" className="py-20 bg-slate-200 dark:bg-gray-900 transition-colors duration-300">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
-          {t('education.title')} <span className="text-yellow-500 dark:text-yellow-400">{t('education.highlight')}</span>
-        </h2>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-        <div className="bg-slate-100 dark:bg-black/50 rounded-lg p-8 transition-colors duration-300">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {education.map((edu, index) => (
-              <div key={index} className="mb-8 last:mb-0">
-                <h3 className="text-yellow-500 dark:text-yellow-400 font-bold mb-2">{edu.year}</h3>
-                <h4 className="text-gray-900 dark:text-white font-semibold mb-2">{edu.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">{edu.institution}</p>
-                {edu.link && (
-                  <a 
-                    href={edu.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-yellow-500 dark:bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-400 dark:hover:bg-yellow-300 transition hover:transform hover:scale-110"
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  return (
+    <section id="education" className="pt-24 bg-resume-bg dark:bg-resume-bg transition-colors duration-300">
+      <div className="container mx-auto px-4">
+        <FadeInSection direction="left" delay={0.1}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title text-resume-text">
+              {t('education.title')} <span className="text-accent-yellow">{t('education.highlight')}</span>
+            </h2>
+          </motion.div>
+        </FadeInSection>
+
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {education.map((edu, index) => (
+            <FadeInSection key={index} direction={edu.direction} delay={0.2 + index * 0.05}>
+              <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="card-hover group p-6 relative overflow-hidden bg-resume-bg-card dark:bg-resume-bg-card h-full"
+                  whileHover={{
+                    y: -4,
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  {/* Left accent bar */}
+                  <div className="absolute left-0 top-0 h-full w-1 bg-accent-yellow group-hover:w-1.5 transition-all duration-300" />
+
+                <div className="relative pl-4">
+                  {/* Year */}
+                  <motion.p
+                    className="text-accent-yellow font-bold text-sm tracking-wide mb-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
                   >
-                    {t('experience.visit')}
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+                    {edu.year}
+                  </motion.p>
+
+                  {/* Title */}
+                  <h3 className="text-resume-text font-bold text-lg mb-1 group-hover:text-accent-yellow transition-colors duration-300">
+                    {edu.title}
+                  </h3>
+
+                  {/* Institution */}
+                  <p className="text-resume-text-secondary text-sm mb-4">
+                    {edu.institution}
+                  </p>
+
+                  {/* Link Button */}
+                  {edu.link && (
+                    <motion.a
+                      href={edu.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block btn-primary text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {t('experience.visit')}
+                    </motion.a>
+                  )}
+                </div>
+              </motion.div>
+            </FadeInSection>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

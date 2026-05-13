@@ -2,4 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Premium color system for light and dark modes */
+:root {
+  --resume-bg: #fafaf9;
+  --resume-bg-card: #ffffff;
+  --resume-text: #1c1c1c;
+  --resume-text-secondary: #6b6b6b;
+  --resume-primary: #171717;
+  --resume-primary-light: #737373;
+  --resume-sidebar-from: #f4f4f4;
+  --resume-sidebar-to: #ebebeb;
+  
+  /* Additional color variables for enhanced UI */
+  --accent-yellow: #eab308;
+  --accent-yellow-dark: #fbbf24;
+  --border-light: #e5e7eb;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+}
+
+.dark {
+  --resume-bg: #0a0a0a;
+  --resume-bg-card: #171717;
+  --resume-text: #f0f0f0;
+  --resume-text-secondary: #a0a0a0;
+  --resume-primary: #e5e5e5;
+  --resume-primary-light: #a3a3a3;
+  --resume-sidebar-from: #0f0f0f;
+  --resume-sidebar-to: #0a0a0a;
+  
+  /* Additional color variables for enhanced UI */
+  --accent-yellow: #fbbf24;
+  --accent-yellow-dark: #fcd34d;
+  --border-light: #404040;
+  --bg-secondary: #1f1f1f;
+  --bg-tertiary: #2a2a2a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--resume-bg);
+    color: var(--resume-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply antialiased;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+}
+
+/* Global component styles */
+@layer components {
+  .card-base {
+    @apply rounded-lg border border-gray-200 dark:border-gray-800 transition-all duration-300;
+    background-color: var(--resume-bg-card);
+    color: var(--resume-text);
+  }
+
+  .card-hover {
+    @apply rounded-lg border transition-all duration-300 hover:shadow-lg dark:hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700;
+    background-color: var(--resume-bg-card);
+    color: var(--resume-text);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 active:scale-95;
+    background-color: var(--accent-yellow);
+    color: #000;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-full font-semibold border transition-all duration-300 hover:scale-105 active:scale-95;
+    border-color: currentColor;
+    color: var(--resume-primary);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-16;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl;
+    color: var(--resume-text-secondary);
+  }
+}
+
 

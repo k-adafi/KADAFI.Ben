@@ -51,33 +51,13 @@ const Home = () => {
 
       {/* Contenu principal */}
       <main>
-        <FadeInSection direction="up">
           <Hero />
-        </FadeInSection>
-
-        <FadeInSection direction="left" delay={0.2}>
           <About />
-        </FadeInSection>
-
-        <FadeInSection direction="right" delay={0.4}>
           <Skills />
-        </FadeInSection>
-
-        <FadeInSection direction="up" delay={0.6}>
           <Projects />
-        </FadeInSection>
-
-        <FadeInSection direction="down" delay={0.8}>
           <Experience />
-        </FadeInSection>
-
-        <FadeInSection direction="left" delay={1}>
           <Education />
-        </FadeInSection>
-
-        <FadeInSection direction="up" delay={1.2}>
           <Contact />
-        </FadeInSection>
       </main>
 
       {/* Footer */}

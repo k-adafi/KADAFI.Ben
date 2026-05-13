@@ -11,11 +11,12 @@ export const translations = {
     },
     hero: {
       greeting: "Hello 👋 !",
-      roles: "Développeur et UX/UI Designer",
-      description1: "Je suis développeur mobile et web full stack spécialisé en Laravel, React et Vue.js, ainsi qu'UX/UI Designer passionné, avec une expertise en Computer Vision. Je conçois des applications modernes, intuitives et centrées sur l'utilisateur.",
+      roles: "Ingénieur logiciel et Développeur full stack",
+      description1: "Je suis Ingénieur logiciel et Développeur full stack spécialisé en Laravel, React et Vue.js, ainsi qu'UX/UI Designer passionné, avec une expertise en Computer Vision. Je conçois des applications modernes, intuitives et centrées sur l'utilisateur.",
       description2: "Fort d'une connaissance dans la création d'expériences digitales fluides et performantes, je mets mes compétences techniques et créatives au service des projets de mes clients. Curieux, inventif et toujours à l'affût des dernières tendances technologiques, j'aime relever des défis et proposer des solutions sur mesure.",
       description3: "Disponible à distance ou sur site, je m'engage à dynamiser vos projets avec énergie, réactivité et implication.",
       viewProjects: "Voir mes projets",
+      viewResume: "Voir mon CV",
     },
     about: {
       title: "À propos",
@@ -39,7 +40,7 @@ export const translations = {
         },
         tools: {
           title: "Outils",
-          desc: "Git, VS Code, Android Studio, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Adobe XD, Figma"
         }
       }
     },
@@ -132,11 +133,12 @@ export const translations = {
     },
     hero: {
       greeting: "Hello 👋 !",
-      roles: "Developer and UX/UI Designer",
-      description1: "I am a full stack web and mobile developer specialized in Laravel, React, and Vue.js, as well as a passionate UX/UI Designer with expertise in Computer Vision. I design modern, intuitive, and user-centric applications.",
+      roles: "Software Engineer and Full stack Developer",
+      description1: "I am a Software Engineer and Full stack Developer specialized in Laravel, React, and Vue.js, as well as a passionate UX/UI Designer with expertise in Computer Vision. I design modern, intuitive, and user-centric applications.",
       description2: "With strong knowledge in creating fluid and high-performance digital experiences, I put my technical and creative skills at the service of my clients' projects. Curious, inventive, and always on the lookout for the latest technological trends, I love taking on challenges and proposing tailor-made solutions.",
       description3: "Available remotely or on-site, I am committed to boosting your projects with energy, responsiveness, and dedication.",
       viewProjects: "View my projects",
+      viewResume: "View my resume",
     },
     about: {
       title: "About",
@@ -253,11 +255,12 @@ export const translations = {
     },
     hero: {
       greeting: "¡Hola 👋 !",
-      roles: "Desarrollador y Diseñador UX/UI",
-      description1: "Soy desarrollador web y móvil full stack especializado en Laravel, React y Vue.js, así como un apasionado Diseñador UX/UI con experiencia en Visión por Computadora. Diseño aplicaciones modernas, intuitivas y centradas en el usuario.",
+      roles: "Ingeniero de software y Desarrollador Full stack",
+      description1: "Soy ingeniero de software y desarrollador full stack especializado en Laravel, React y Vue.js, así como un apasionado Diseñador UX/UI con experiencia en Visión por Computadora. Diseño aplicaciones modernas, intuitivas y centradas en el usuario.",
       description2: "Con un sólido conocimiento en la creación de experiencias digitales fluidas y de alto rendimiento, pongo mis habilidades técnicas y creativas al servicio de los proyectos de mis clientes. Curioso, inventivo y siempre atento a las últimas tendencias tecnológicas, me encanta asumir retos y proponer soluciones a medida.",
       description3: "Disponible de forma remota o presencial, me comprometo a impulsar sus proyectos con energía, capacidad de respuesta y dedicación.",
       viewProjects: "Ver mis proyectos",
+      viewResume: "Ver mi currículum",
     },
     about: {
       title: "Sobre",
