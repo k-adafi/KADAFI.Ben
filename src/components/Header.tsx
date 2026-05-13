@@ -54,13 +54,13 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <motion.h1 
+          {/* <motion.h1 
             className="text-2xl font-bold text-resume-primary hover:text-accent-yellow transition-colors duration-300 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             onClick={(e) => handleNavClick(e as any, '#')}
           >
             KADAFI.Ben
-          </motion.h1>
+          </motion.h1> */}
           
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
