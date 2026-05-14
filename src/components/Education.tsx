@@ -6,13 +6,6 @@ const Education = () => {
   const { t } = useLanguage();
   const education = [
     {
-      year: t('education.items.orangeCV.year'),
-      title: t('education.items.orangeCV.title'),
-      institution: t('education.items.orangeCV.institution'),
-      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar",
-      direction: "left"
-    },
-    {
       year: t('education.items.master.year'),
       title: t('education.items.master.title'),
       institution: t('education.items.master.institution'),
@@ -24,20 +17,6 @@ const Education = () => {
       title: t('education.items.licence.title'),
       institution: t('education.items.licence.institution'),
       direction: "right"
-    },
-    {
-      year: t('education.items.opendata.year'),
-      title: t('education.items.opendata.title'),
-      institution: t('education.items.opendata.institution'),
-      link: "https://www.association-maidi.mg/",
-      direction: "down"
-    },
-    {
-      year: t('education.items.orangeUX.year'),
-      title: t('education.items.orangeUX.title'),
-      institution: t('education.items.orangeUX.institution'),
-      link: "https://www.facebook.com/OrangeDigitalCenterMadagascar",
-      direction: "left"
     },
     {
       year: t('education.items.bacc.year'),
@@ -69,7 +48,7 @@ const Education = () => {
 
   return (
     <section id="education" className="pt-24 bg-resume-bg dark:bg-resume-bg transition-colors duration-300">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <FadeInSection direction="left" delay={0.1}>
           <motion.div
             initial={{ opacity: 0 }}
@@ -84,7 +63,7 @@ const Education = () => {
         </FadeInSection>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

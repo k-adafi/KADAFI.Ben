@@ -44,7 +44,7 @@ const Projects = () => {
       title: t('projects.items.mydetector.title'),
       description: t('projects.items.mydetector.desc'),
       images: [mydetector1, mydetector2, mydetector3, mydetector4],
-      technologies: ["Java", "XML", "Android Studio", "Python", "PyTorch", "TensorFlow Lite", "YOLOv11", "MobileNetV3Small"],
+      technologies: ["Java", "XML", "Android Studio", "Python", "PyTorch", "TensorFlow Lite", "YOLOv11", "MobileNetV3Small", "DeepSORT"],
       demo: "/assets/Mydetector.mp4",
       isVideo: true,
       direction : "up"

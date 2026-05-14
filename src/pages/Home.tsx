@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -6,6 +6,7 @@ import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
+import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import backgroundVideo from '../assets/vid.mp4';
@@ -13,6 +14,7 @@ import FadeInSection from '../components/FadeInSection';
 
 const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
   useEffect(() => {
     const vid = videoRef.current;
@@ -44,26 +46,24 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/30 dark:bg-black/60"></div>
       </div>
 
-      {/* Header fixe */}
-      <div className="fixed w-full top-0 z-50">
-        <Header />
-      </div>
+      {/* Header/Sidebar fixe */}
+      <Header 
+        isCollapsed={isSidebarCollapsed} 
+        setIsCollapsed={setIsSidebarCollapsed} 
+      />
 
-      {/* Contenu principal */}
-      <main>
+      {/* Contenu principal - Ajusté selon la sidebar */}
+      <main className={`transition-all duration-300 ${isSidebarCollapsed ? 'md:pl-20' : 'md:pl-[260px]'}`}>
           <Hero />
           <About />
           <Skills />
           <Projects />
           <Experience />
           <Education />
+          <Certifications />
           <Contact />
+          <Footer />
       </main>
-
-      {/* Footer */}
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 };

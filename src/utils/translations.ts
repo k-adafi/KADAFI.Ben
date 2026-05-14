@@ -7,6 +7,9 @@ export const translations = {
       about: 'À propos',
       skills: 'Compétences',
       projects: 'Projets',
+      experience: 'Expériences',
+      education: 'Éducation',
+      certifications: 'Certifications',
       contact: 'Contacts',
     },
     hero: {
@@ -28,7 +31,7 @@ export const translations = {
         },
         backend: {
           title: "Back-End et base de données",
-          desc: "PHP, Laravel, MySQL"
+          desc: "PHP, Laravel, MySQL, Node js, PostgreSQL"
         },
         mobile: {
           title: "App Mobile",
@@ -36,11 +39,11 @@ export const translations = {
         },
         data: {
           title: "Traitement et analyse de données",
-          desc: "Python, OpenCV, Matplotlib, Keras, Tensorflow"
+          desc: "Python, OpenCV, Matplotlib, Keras, Tensorflow, Numpy, Pandas, sklearn, skimage"
         },
         tools: {
           title: "Outils",
-          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
         }
       }
     },
@@ -90,12 +93,30 @@ export const translations = {
       title: "Parcours",
       highlight: "Académique",
       items: {
-        orangeCV: { year: "Juin 2025", title: "Formation en Computer Vision et modélisation de l’ intelligence artificielle", institution: "Orange Digital Center Madagascar à Antananarivo" },
-        master: { year: "2025", title: "Master II en informatique imageries et Interactions", institution: "Université de Toamasina" },
+        master: { year: "2026", title: "Master II en informatique imageries et Interactions", institution: "Université de Toamasina" },
         licence: { year: "2023", title: "Licence en Mathématiques informatiques et Application", institution: "Université de Toamasina" },
-        opendata: { year: "Septembre 2023", title: "Formation en Open Data au cœur d'un plaidoyer efficace", institution: "Madagascar Initiatives for Digital à Antananarivo" },
-        orangeUX: { year: "Avril 2023", title: "Formation en UX/UI (User Experience/User Interface) design", institution: "Orange Digital Center Madagascar à Antananarivo" },
         bacc: { year: "2019", title: "Baccalauréat de l'enseignement secondaire", institution: "Lycée Mananara Nord" }
+      }
+    },
+    certifications: {
+      title: "Mes",
+      highlight: "Certifications",
+      view: "Voir",
+      download: "Télécharger",
+      close: "Fermer",
+      error: "Le navigateur ne peut pas afficher ce contenu directement.",
+      downloadAction: "Télécharger pour voir",
+      items: {
+        coursera1: { year: "2025", title: "Certificat Coursera - Business Analysis & Process Management", issuer: "Coursera" },
+        ong: { year: "2025", title: "Attestation de Reconnaissance - Vision par Ordinateur", issuer: "ONG JADE" },
+        hackaton: { year: "2025", title: "Attestation Hackathon - Initiation à l'Entrepreneuriat", issuer: "Maison de l'entrepreneuriat" },
+        computerVision: { year: "Juin 2025", title: "Formation en Vision par Ordinateur", issuer: "Orange Digital Center Madagascar" },
+        english: { year: "Juin 2025", title: "Certificat English Connect Program", issuer: "Better Tomorrow Global" },
+        openData: { year: "Septembre 2023", title: "Formation Open Data au cœur d'un plaidoyer efficace", issuer: "Madagascar Initiatives for Digital Innovation" },
+        uxui: { year: "Avril 2023", title: "Formation en Design UX/UI", issuer: "Orange Digital Center Madagascar" },
+        coursera2: { year: "2023", title: "Certificat Coursera - Object-Oriented Programming with Java", issuer: "Coursera" },
+        masterClass: { year: "2022", title: "Certificat Master Class - RARY ARO MADA", issuer: "RARY ARO MADA" },
+        humanRights: { year: "2021", title: "Certificat de Reconnaissance - Club Droits de l'Homme", issuer: "Club Droits de l'Homme" },
       }
     },
     contact: {
@@ -129,6 +150,9 @@ export const translations = {
       about: 'About',
       skills: 'Skills',
       projects: 'Projects',
+      experience: 'Experience',
+      education: 'Education',
+      certifications: 'Certifications',
       contact: 'Contact',
     },
     hero: {
@@ -150,7 +174,7 @@ export const translations = {
         },
         backend: {
           title: "Back-End and Database",
-          desc: "PHP, Laravel, MySQL"
+          desc: "PHP, Laravel, MySQL, Node js, PostgreSQL"
         },
         mobile: {
           title: "Mobile App",
@@ -162,7 +186,7 @@ export const translations = {
         },
         tools: {
           title: "Tools",
-          desc: "Git, VS Code, Android Studio, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
         }
       }
     },
@@ -213,11 +237,29 @@ export const translations = {
       highlight: "Background",
       items: {
         orangeCV: { year: "June 2025", title: "Training in Computer Vision and Artificial Intelligence Modeling", institution: "Orange Digital Center Madagascar in Antananarivo" },
-        master: { year: "2025", title: "Master II in Computer Science, Imaging and Interactions", institution: "University of Toamasina" },
         licence: { year: "2023", title: "Bachelor's Degree in Computer Mathematics and Application", institution: "University of Toamasina" },
-        opendata: { year: "September 2023", title: "Training in Open Data at the heart of effective advocacy", institution: "Madagascar Initiatives for Digital in Antananarivo" },
-        orangeUX: { year: "April 2023", title: "Training in UX/UI (User Experience/User Interface) design", institution: "Orange Digital Center Madagascar in Antananarivo" },
         bacc: { year: "2019", title: "High School Diploma", institution: "Lycée Mananara Nord" }
+      }
+    },
+    certifications: {
+      title: "My",
+      highlight: "Certifications",
+      view: "View",
+      download: "Download",
+      close: "Close",
+      error: "The browser cannot display this content directly.",
+      downloadAction: "Download to view",
+      items: {
+        coursera1: { year: "2025", title: "Coursera Certificate - Business Analysis & Process Management", issuer: "Coursera" },
+        ong: { year: "2025", title: "Recognition Certificate - Computer Vision", issuer: "ONG JADE" },
+        hackaton: { year: "2025", title: "Hackathon Certificate - Introduction to Entrepreneurship", issuer: "Maison de l'entrepreneuriat" },
+        computerVision: { year: "June 2025", title: "Computer Vision Training", issuer: "Orange Digital Center Madagascar" },
+        english: { year: "June 2025", title: "English Connect Program Certificate", issuer: "Better Tomorrow Global" },
+        openData: { year: "September 2023", title: "Open Data Training for Effective Advocacy", issuer: "Madagascar Initiatives for Digital Innovation" },
+        uxui: { year: "April 2023", title: "UX/UI Design Training", issuer: "Orange Digital Center Madagascar" },
+        coursera2: { year: "2023", title: "Coursera Certificate - Object-Oriented Programming with Java", issuer: "Coursera" },
+        masterClass: { year: "2022", title: "Master Class Certificate - RARY ARO MADA", issuer: "RARY ARO MADA" },
+        humanRights: { year: "2021", title: "Recognition Certificate - Human Rights Club", issuer: "Club Droits de l'Homme" },
       }
     },
     contact: {
@@ -250,7 +292,10 @@ export const translations = {
       home: 'Inicio',
       about: 'Sobre mí',
       skills: 'Habilidades',
-      projects: 'Proyectos',
+      crojects: 'Proyectos',
+      experience: 'Experiencia',
+      education: 'Educación',
+      pertifications: 'Certificaciones',
       contact: 'Contacto',
     },
     hero: {
@@ -272,7 +317,7 @@ export const translations = {
         },
         backend: {
           title: "Back-End y Base de datos",
-          desc: "PHP, Laravel, MySQL"
+          desc: "PHP, Laravel, MySQL, Node js, PostgreSQL"
         },
         mobile: {
           title: "App Móvil",
@@ -284,7 +329,7 @@ export const translations = {
         },
         tools: {
           title: "Herramientas",
-          desc: "Git, VS Code, Android Studio, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
         }
       }
     },
@@ -334,12 +379,30 @@ export const translations = {
       title: "Formación",
       highlight: "Académica",
       items: {
-        orangeCV: { year: "Junio 2025", title: "Formación en Visión por Computadora y Modelado de Inteligencia Artificial", institution: "Orange Digital Center Madagascar en Antananarivo" },
-        master: { year: "2025", title: "Máster II en Informática de Imágenes e Interacciones", institution: "Universidad de Toamasina" },
+        master: { year: "2026", title: "Máster II en Informática de Imágenes e Interacciones", institution: "Universidad de Toamasina" },
         licence: { year: "2023", title: "Licenciatura en Matemáticas Informáticas y Aplicadas", institution: "Universidad de Toamasina" },
-        opendata: { year: "Septiembre 2023", title: "Formación en Datos Abiertos en el corazón de la promoción eficaz", institution: "Madagascar Initiatives for Digital en Antananarivo" },
-        orangeUX: { year: "Abril 2023", title: "Formación en diseño UX/UI (Experiencia de Usuario/Interfaz de Usuario)", institution: "Orange Digital Center Madagascar en Antananarivo" },
         bacc: { year: "2019", title: "Bachillerato de escuela secundaria", institution: "Lycée Mananara Nord" }
+      }
+    },
+    certifications: {
+      title: "Mis",
+      highlight: "Certificaciones",
+      view: "Ver",
+      download: "Descargar",
+      close: "Cerrar",
+      error: "El navegador no puede mostrar este contenido directamente.",
+      downloadAction: "Descargar para ver",
+      items: {
+        coursera1: { year: "2025", title: "Certificado de Coursera - Business Analysis & Process Management", issuer: "Coursera" },
+        ong: { year: "2025", title: "Certificado de Reconocimiento - Visión Artificial", issuer: "ONG JADE" },
+        hackaton: { year: "2025", title: "Certificado de Hackathon - Iniciación al Emprendimiento", issuer: "Maison de l'entrepreneuriat" },
+        computerVision: { year: "Junio 2025", title: "Capacitación en Visión Artificial", issuer: "Orange Digital Center Madagascar" },
+        english: { year: "Junio 2025", title: "Certificado de English Connect Program", issuer: "Better Tomorrow Global" },
+        openData: { year: "Septiembre 2023", title: "Capacitación de Datos Abiertos para una Defensa Eficaz", issuer: "Madagascar Initiatives for Digital Innovation" },
+        uxui: { year: "Abril 2023", title: "Capacitación en Diseño UX/UI", issuer: "Orange Digital Center Madagascar" },
+        coursera2: { year: "2023", title: "Certificado de Coursera - Object-Oriented Programming with Java", issuer: "Coursera" },
+        masterClass: { year: "2022", title: "Certificado de Master Class - RARY ARO MADA", issuer: "RARY ARO MADA" },
+        humanRights: { year: "2021", title: "Certificado de Reconocimiento - Club de Derechos Humanos", issuer: "Club Droits de l'Homme" },
       }
     },
     contact: {

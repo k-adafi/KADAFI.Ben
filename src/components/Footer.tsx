@@ -101,11 +101,11 @@ const Footer = () => {
             />
 
             {/* Language Switcher */}
-            <motion.div
+            {/* <motion.div
               variants={itemVariants}
             >
               <LanguageSwitcher />
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </motion.div>
 

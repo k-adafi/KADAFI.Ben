@@ -204,7 +204,7 @@ const Hero = () => {
                 <motion.img 
                   src={image}
                   alt="KADAFI Ben profile"
-                  className="rounded-full w-[270px] md:w-[39  0px] shadow-2xl border-4 border-accent-yellow ring-4 ring-accent-yellow/20"
+                  className="rounded-full w-[300px] md:w-[420px] shadow-2xl border-4 border-accent-yellow ring-4 ring-accent-yellow/20"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 />
