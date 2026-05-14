@@ -111,8 +111,8 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
   ];
 
   const sidebarVariants = {
-    expanded: { width: 260 },
-    collapsed: { width: 80 }
+    expanded: { width: 180 },
+    collapsed: { width: 60 }
   };
 
   return (
@@ -140,19 +140,19 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="absolute -right-3 top-10 bg-accent-yellow text-black p-1 rounded-full shadow-lg hover:scale-110 transition-transform z-[60]"
         >
-          {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+          {isCollapsed ? <ChevronRight size={10} /> : <ChevronLeft size={10} />}
         </button>
 
         {/* Logo Section */}
-        <div className="p-6 flex items-center gap-4 overflow-hidden">
-          <div className="min-w-[32px] w-8 h-8 bg-accent-yellow rounded-lg flex items-center justify-center font-bold text-black text-xl shadow-lg shadow-accent-yellow/20">
+        <div className="p-4 flex items-center gap-4 overflow-hidden">
+          <div className="min-w-[22px] w-6 h-6 bg-accent-yellow rounded-lg flex items-center justify-center font-bold text-black text-xl shadow-lg shadow-accent-yellow/20">
             K
           </div>
           {!isCollapsed && (
             <motion.span 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              className="font-bold text-xl text-resume-primary whitespace-nowrap"
+              className="font-bold text-md text-resume-primary whitespace-nowrap"
             >
               KADAFI.Ben
             </motion.span>
@@ -160,7 +160,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
         </div>
 
         {/* Navigation Section */}
-        <nav className="flex-grow px-3 py-6 space-y-2 overflow-y-auto no-scrollbar">
+        <nav className="flex-grow px-3 py-4 overflow-y-auto no-scrollbar">
           {menuItems.map((item) => (
             <motion.a
               key={item.name}
@@ -174,7 +174,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
               whileHover={{ x: 4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <item.icon size={22} className={`min-w-[22px] transition-transform ${activeSection === item.href ? 'scale-110' : 'group-hover:scale-110'}`} />
+              <item.icon size={14} className={`min-w-[14px] transition-transform ${activeSection === item.href ? 'scale-110' : 'group-hover:scale-110'}`} />
               {!isCollapsed && (
                 <motion.span
                   initial={{ opacity: 0, x: -10 }}
@@ -185,7 +185,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
                 </motion.span>
               )}
               {isCollapsed && (
-                <div className="absolute left-16 bg-resume-bg-card border border-gray-200 dark:border-gray-800 px-3 py-1.5 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap text-xs font-bold shadow-xl">
+                <div className="absolute left-16 bg-resume-bg-card border border-gray-200 dark:border-gray-800 px-1 py-1.5 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap text-[10px] font-bold shadow-xl">
                   {item.name}
                 </div>
               )}
@@ -223,7 +223,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <social.icon size={18} />
+                <social.icon size={14} />
               </motion.a>
             ))}
           </div>
@@ -251,7 +251,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
               <div className="flex justify-between items-center mb-10">
                 <h1 className="text-2xl font-bold text-accent-yellow">KADAFI.Ben</h1>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-resume-primary">
-                  <X size={24} />
+                  <X size={18} />
                 </button>
               </div>
 
@@ -268,7 +268,7 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
                     }`}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <item.icon size={22} className={activeSection === item.href ? 'scale-110' : ''} />
+                    <item.icon size={14} className={activeSection === item.href ? 'scale-110' : ''} />
                     {item.name}
                   </motion.a>
                 ))}
@@ -280,10 +280,10 @@ const Header = ({ isCollapsed, setIsCollapsed }: HeaderProps) => {
                   <LanguageSwitcher />
                 </div>
                 <div className="flex justify-center gap-4">
-                  <a href="https://github.com/k-adafi" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Github size={20} /></a>
-                  <a href="https://www.linkedin.com/in/kadafi-ben-0312a3265/" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Linkedin size={20} /></a>
-                  <a href="https://www.facebook.com/kadafy.man.3" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Facebook size={20} /></a>
-                  <a href="mailto:kadafiben196@gmail.com" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Mail size={20} /></a>
+                  <a href="https://github.com/k-adafi" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Github size={14} /></a>
+                  <a href="https://www.linkedin.com/in/kadafi-ben-0312a3265/" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Linkedin size={14} /></a>
+                  <a href="https://www.facebook.com/kadafy.man.3" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Facebook size={14} /></a>
+                  <a href="mailto:kadafiben196@gmail.com" target="_blank" rel="noopener noreferrer" className="text-resume-primary hover:text-accent-yellow transition-colors"><Mail size={14} /></a>
                 </div>
               </div>
             </motion.div>

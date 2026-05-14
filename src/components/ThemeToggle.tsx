@@ -23,9 +23,9 @@ const ThemeToggle: React.FC = () => {
           transition={{ duration: 0.2 }}
         >
           {theme === "light" ? (
-            <Moon className="w-5 h-5 text-resume-primary" />
+            <Moon className="w-4 h-4 text-resume-primary" />
           ) : (
-            <Sun className="w-5 h-5 text-resume-primary" />
+            <Sun className="w-4 h-4 text-resume-primary" />
           )}
         </motion.div>
       </AnimatePresence>

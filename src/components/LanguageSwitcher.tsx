@@ -76,11 +76,11 @@ const LanguageSwitcher = () => {
         whileTap={{ scale: 0.95 }}
         aria-label="Changer de langue"
       >
-        <Globe size={16} className="text-gray-600 dark:text-gray-300" />
+        <Globe size={14} className="text-gray-600 dark:text-gray-300" />
         {/* <span className="text-sm font-medium hidden sm:inline-block text-gray-800 dark:text-gray-200">
           {currentLang.flag} {currentLang.code.toUpperCase()}
         </span> */}
-        <ChevronDown size={14} className={`text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={12} className={`text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </motion.button>
 
       <AnimatePresence>
@@ -97,7 +97,7 @@ const LanguageSwitcher = () => {
                 <button
                   key={lang.code}
                   onClick={() => handleSelect(lang.code)}
-                  className={`w-full flex items-center gap-3 px-4 py-2 text-left text-sm transition-colors duration-200 ${
+                  className={`w-full flex items-center gap-3 px-4 py-2 text-left text-xs transition-colors duration-200 ${
                     language === lang.code 
                       ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400 font-medium' 
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
