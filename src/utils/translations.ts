@@ -236,7 +236,7 @@ export const translations = {
       title: "Academic",
       highlight: "Background",
       items: {
-        orangeCV: { year: "June 2025", title: "Training in Computer Vision and Artificial Intelligence Modeling", institution: "Orange Digital Center Madagascar in Antananarivo" },
+        master: { year: "2026", title: "Master's Degree II in Computer Science, Imaging and Interactions", institution: "University of Toamasina" },
         licence: { year: "2023", title: "Bachelor's Degree in Computer Mathematics and Application", institution: "University of Toamasina" },
         bacc: { year: "2019", title: "High School Diploma", institution: "Lycée Mananara Nord" }
       }
