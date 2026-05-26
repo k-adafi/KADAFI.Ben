@@ -36,7 +36,7 @@ const Projects = () => {
       title: t('projects.items.immo.title'),
       description: t('projects.items.immo.desc'),
       images: [immomada, immomada1, immomada2, immomada3],
-      technologies: ["React js", "Bootstrap", "Node.js", "MySQL"],
+      technologies: ["React js", "Bootstrap", "Laravel", "MySQL"],
       demo: "https://agenceimmomadaocea.com/",
       direction : "left"
     },
