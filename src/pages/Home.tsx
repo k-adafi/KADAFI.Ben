@@ -53,7 +53,7 @@ const Home = () => {
       />
 
       {/* Contenu principal - Ajusté selon la sidebar */}
-      <main className={`transition-all duration-300 ${isSidebarCollapsed ? 'md:pl-19.5' : 'md:pl-[180px]'}`}>
+      <main className={`transition-all duration-300 ${isSidebarCollapsed ? 'md:pl-14' : 'md:pl-[180px]'}`}>
           <Hero />
           <About />
           <Skills />

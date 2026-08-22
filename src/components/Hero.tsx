@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageCore';
 import { useLoader } from '../context/LoaderCore';
-import image from '../assets/KADAFI.jpg';
+import image from '../assets/KADAFI1.jpeg';
 import backgroundVideo from '../assets/vid.mp4';
 import FadeInSection from './FadeInSection';
 

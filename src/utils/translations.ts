@@ -43,7 +43,7 @@ export const translations = {
         },
         tools: {
           title: "Outils",
-          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma, Bitrix24, Trello, LucidChart"
         }
       }
     },
@@ -186,7 +186,7 @@ export const translations = {
         },
         tools: {
           title: "Tools",
-          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma, Bitrix24, Trello, LucidChart"
         }
       }
     },
@@ -329,7 +329,7 @@ export const translations = {
         },
         tools: {
           title: "Herramientas",
-          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma"
+          desc: "Git & GitHub, PHPStorm, VS Code, Android Studio, Google Colab, Kaggle, Adobe XD, Figma, Bitrix24, Trello, LucidChart"
         }
       }
     },
