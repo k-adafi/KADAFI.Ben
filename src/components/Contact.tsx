@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Check, Copy, Download, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Check, Copy, Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { profile } from '../data/profile';
 import { Reveal } from '../lib/ui';
+import CvLink from './CvLink';
 
 export default function Contact() {
-  const { t, l } = useI18n();
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -41,9 +42,7 @@ export default function Contact() {
               <button type="button" onClick={copy} className="btn-ghost" aria-live="polite">
                 {copied ? <Check size={16} /> : <Copy size={16} />} {copied ? t('contact.copied') : t('contact.copy')}
               </button>
-              <a href={l(profile.cv)} download className="btn-ghost">
-                <Download size={16} /> {t('cta.cv')}
-              </a>
+              <CvLink className="btn-ghost" />
             </div>
 
             <ul className="mt-10 grid gap-3 border-t border-line pt-8 sm:grid-cols-3">

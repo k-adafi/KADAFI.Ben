@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Download, Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useI18n } from '../i18n';
 import type { UiKey } from '../i18n/ui';
 import { profile } from '../data/profile';
 import { useActiveSection, useTheme } from '../lib/hooks';
 import { EASE } from '../lib/motion';
+import CvLink from './CvLink';
 
 const links: { id: string; key: UiKey }[] = [
   { id: 'about', key: 'nav.about' },
@@ -18,7 +19,7 @@ const links: { id: string; key: UiKey }[] = [
 const ids = links.map((l) => l.id);
 
 export default function Navbar() {
-  const { t, l, lang, setLang } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const { theme, toggle } = useTheme();
   const active = useActiveSection(ids);
   const [open, setOpen] = useState(false);
@@ -88,9 +89,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">{controls}</div>
-          <a href={l(profile.cv)} download className="btn-primary hidden py-2 md:inline-flex">
-            <Download size={15} /> CV
-          </a>
+          <CvLink short className="btn-primary hidden py-2 md:inline-flex" />
           <button
             type="button"
             className="icon-btn lg:hidden"
@@ -127,9 +126,7 @@ export default function Navbar() {
               ))}
               <li className="mt-4 flex items-center gap-2 border-t border-line pt-4">
                 {controls}
-                <a href={l(profile.cv)} download className="btn-primary ml-auto py-2">
-                  <Download size={15} /> {t('cta.cv')}
-                </a>
+                <CvLink className="btn-primary ml-auto py-2" onClick={() => setOpen(false)} />
               </li>
             </ul>
           </motion.div>

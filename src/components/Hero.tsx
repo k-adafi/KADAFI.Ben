@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { profile, stats } from '../data/profile';
+import CvLink from './CvLink';
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 14 },
@@ -50,9 +51,7 @@ export default function Hero() {
             <a href="#projects" className="btn-primary">
               {t('cta.projects')} <ArrowRight size={16} />
             </a>
-            <a href={l(profile.cv)} download className="btn-ghost">
-              <Download size={16} /> {t('cta.cv')}
-            </a>
+            <CvLink className="btn-ghost" />
             <div className="ml-1 flex items-center gap-2">
               <a href={profile.github} target="_blank" rel="noreferrer" className="icon-btn" aria-label="GitHub">
                 <Github size={16} />
