@@ -1,219 +1,101 @@
-import React, { useRef, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageCore';
-import { useLoader } from '../context/LoaderCore';
-import image from '../assets/KADAFI1.jpeg';
-import backgroundVideo from '../assets/vid.mp4';
-import FadeInSection from './FadeInSection';
+import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { useI18n } from '../i18n';
+import { profile, stats } from '../data/profile';
 
-const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const { t } = useLanguage();
-  const { startLoading, stopLoading } = useLoader();
+const fade = (delay: number) => ({
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay },
+});
 
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (vid) {
-      vid.muted = true;
-      const playPromise = vid.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Autoplay bloqué :", error);
-        });
-      }
-    }
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    }
-  };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('http') || href.startsWith('https')) {
-      // Lien externe - laisser le navigateur gérer
-      return;
-    }
-    
-    e.preventDefault();
-    
-    startLoading();
-    
-    setTimeout(() => {
-        const targetId = href.replace('#', '');
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 400);
-
-    setTimeout(() => {
-      stopLoading();
-    }, 1100);
-  };
+export default function Hero() {
+  const { t, l } = useI18n();
 
   return (
-    <section 
-      id="hero-section"
-      className="relative min-h-screen flex items-center justify-center pt-20 pb-10 sm:pt-0 sm:pb-0"
-    >
-      {/* Video background fixed */}
-      <div className="fixed inset-0 -z-10">
-        <video
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={backgroundVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        {/* Overlay adaptatif pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
-      </div>
+    <section id="top" className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
+      <div aria-hidden className="bg-grid pointer-events-none absolute inset-0 -z-10" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
+      />
 
-      <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-        {/* Left Content */}
-        <motion.div 
-            className="md:w-1/2 text-white text-center md:text-left"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            {/* Main Title */}
-            <FadeInSection direction="left" delay={0.1}>
-              <motion.div variants={itemVariants}>
-                <h1 className="text-2xl md:text-3xl font-bold mb-4">
-                  KADAFI Ben
-                </h1>
-                <div className="h-1 w-24 bg-gradient-to-r from-accent-yellow to-yellow-300 rounded-full mb-6" />
-              </motion.div>
-            </FadeInSection>
-            
-            
-            {/* Subtitle */}
-            <FadeInSection direction="right" delay={0.2}>
-              <motion.h2 
-                variants={itemVariants}
-                className="text-xl md:text-2xl font-semibold mb-8 text-accent-yellow"
-              >
-                {t('hero.roles')}
-              </motion.h2>
-            </FadeInSection>
-            
-            
-            {/* Description */}
-            <FadeInSection direction="up" delay={0.3}>
-              <motion.div 
-                  variants={itemVariants}
-                  className="text-white/90 mb-8 font-light space-y-4 leading-relaxed"
-                >
-                  <p>{t('hero.greeting')}</p>
-                  <p>{t('hero.description1')}</p>
-                <p>{t('hero.description2')}</p>
-                <p>{t('hero.description3')}</p>
-              </motion.div>
-            </FadeInSection>
-              
-            
-            {/* CTA Button */}
-            <FadeInSection direction="left" delay={0.4}>
-              <motion.div 
-                variants={itemVariants}
-                className="flex flex-col md:flex-row gap-4 justify-center md:justify-start"
-              >
-                {/* <motion.a 
-                  href="#portfolio"
-                  onClick={(e) => handleNavClick(e, '#portfolio')}
-                  className="btn-primary flex items-center justify-center gap-2 text-sm font-semibold px-8 py-3"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {t('hero.viewProjects')}
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight size={20} />
-                  </motion.div>
-                </motion.a> */}
-                <motion.a 
-                  href="https://kadafi-ben-cv.vercel.app/" target='_blank'
-                  onClick={(e) => handleNavClick(e, 'https://kadafi-ben-cv.vercel.app/')}
-                  className="btn-primary flex items-center justify-center gap-2 text-sm font-semibold px-8 py-3"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {t('hero.viewResume')}
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight size={20} />
-                  </motion.div>
-                </motion.a>
-              </motion.div>
-            </FadeInSection>  
-            
-        </motion.div>
+      <div className="container grid items-center gap-12 md:grid-cols-[1.35fr_1fr]">
+        <div>
+          <motion.p {...fade(0)} className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-pulse-dot rounded-full bg-emerald-500" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            {t('hero.available')}
+          </motion.p>
 
+          <motion.h1 {...fade(0.05)} className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            {profile.name}
+            <span className="mt-2 block whitespace-nowrap text-3xl text-muted sm:text-4xl md:text-5xl">
+              {/* Non-breaking hyphen so "Full-Stack" never wraps. */}
+              {l(profile.role).replace('-', '‑')}
+            </span>
+          </motion.h1>
 
-        {/* Right Content - Image */}
-        <motion.div 
-            className="md:w-1/2 flex justify-center"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.div 
-              variants={itemVariants}
-              className="relative"
-            >
-              {/* Animated background glow */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-accent-yellow via-yellow-300 to-accent-yellow opacity-30 blur-2xl -z-10"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
+          <motion.p {...fade(0.1)} className="mt-4 font-mono text-sm text-accent">
+            {profile.stackLine}
+          </motion.p>
 
-              {/* Image */}
-              <FadeInSection direction="up" delay={0.5}>
-                <motion.img 
-                  src={image}
-                  alt="KADAFI Ben profile"
-                  className="rounded-full w-[300px] md:w-[420px] shadow-2xl border-4 border-accent-yellow ring-4 ring-accent-yellow/20"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                />
-              </FadeInSection>
-            </motion.div>
+          <motion.p {...fade(0.15)} className="mt-6 max-w-prose text-base leading-relaxed text-muted md:text-lg">
+            {l(profile.pitch)}
+          </motion.p>
+
+          <motion.div {...fade(0.2)} className="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#projects" className="btn-primary">
+              {t('cta.projects')} <ArrowRight size={16} />
+            </a>
+            <a href={l(profile.cv)} download className="btn-ghost">
+              <Download size={16} /> {t('cta.cv')}
+            </a>
+            <div className="ml-1 flex items-center gap-2">
+              <a href={profile.github} target="_blank" rel="noreferrer" className="icon-btn" aria-label="GitHub">
+                <Github size={16} />
+              </a>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="icon-btn" aria-label="LinkedIn">
+                <Linkedin size={16} />
+              </a>
+              <a href={`mailto:${profile.email}`} className="icon-btn" aria-label="Email">
+                <Mail size={16} />
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.dl {...fade(0.25)} className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-6">
+            {stats.map((s) => (
+              <div key={s.value + s.label.en}>
+                <dt className="sr-only">{l(s.label)}</dt>
+                <dd className="text-2xl font-semibold tracking-tight md:text-3xl">{s.value}</dd>
+                <dd className="mt-1 text-xs leading-snug text-muted">{l(s.label)}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </div>
+
+        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-sm">
+          <div className="card overflow-hidden p-2 shadow-2xl shadow-black/10">
+            <img
+              src={profile.photo}
+              alt={profile.fullName}
+              width={640}
+              height={720}
+              className="aspect-[4/4.5] w-full rounded-xl object-cover object-[50%_25%]"
+              loading="eager"
+            />
+            <div className="flex items-center justify-between px-3 pb-2 pt-3 text-xs text-muted">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={13} /> {l(profile.location)}
+              </span>
+              <span className="font-mono">{profile.timezone}</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

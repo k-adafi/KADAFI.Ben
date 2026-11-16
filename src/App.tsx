@@ -1,32 +1,30 @@
-import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
-import Home from './pages/Home';
-import VideoDemo from './pages/VideoDemo';
-import CertView from './pages/CertView';
-import { ReactNode } from 'react';
+import { MotionConfig } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/projects/Projects';
+import Workflow from './components/Workflow';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
+import Education from './components/Education';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-const ThemeWrapper = ({ children }: { children: ReactNode }) => {
-  const { theme } = useTheme();
-  
+export default function App() {
   return (
-    <div className={theme}>
-      {children}
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <ThemeProvider>
-      <ThemeWrapper>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/video" element={<VideoDemo />} />
-          <Route path="/certificat" element={<CertView />} />
-        </Routes>
-      </ThemeWrapper>
-    </ThemeProvider>
+    <MotionConfig reducedMotion="user">
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <About />
+        <Projects />
+        <Workflow />
+        <Experience />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </MotionConfig>
   );
 }
-
-export default App;

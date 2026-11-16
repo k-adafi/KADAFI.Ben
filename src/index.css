@@ -2,107 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium color system for light and dark modes */
+/* Design tokens — RGB triplets so Tailwind can apply opacity modifiers. */
 :root {
-  --resume-bg: #fafaf9;
-  --resume-bg-card: #ffffff;
-  --resume-text: #1c1c1c;
-  --resume-text-secondary: #6b6b6b;
-  --resume-primary: #171717;
-  --resume-primary-light: #737373;
-  --resume-sidebar-from: #f4f4f4;
-  --resume-sidebar-to: #ebebeb;
-  
-  /* Additional color variables for enhanced UI */
-  --accent-yellow: #eab308;
-  --accent-yellow-dark: #fbbf24;
-  --border-light: #e5e7eb;
-  --bg-secondary: #f3f4f6;
-  --bg-tertiary: #e5e7eb;
+  --bg: 250 250 249;
+  --surface: 255 255 255;
+  --elevated: 244 244 245;
+  --line: 228 228 231;
+  --fg: 24 24 27;
+  --muted: 82 82 91;
+  --accent: 13 148 136; /* teal-600 — same accent as the PDF resume */
+  --accent-fg: 255 255 255;
+  color-scheme: light;
 }
 
 .dark {
-  --resume-bg: #0a0a0a;
-  --resume-bg-card: #171717;
-  --resume-text: #f0f0f0;
-  --resume-text-secondary: #a0a0a0;
-  --resume-primary: #e5e5e5;
-  --resume-primary-light: #a3a3a3;
-  --resume-sidebar-from: #0f0f0f;
-  --resume-sidebar-to: #0a0a0a;
-  
-  /* Additional color variables for enhanced UI */
-  --accent-yellow: #fbbf24;
-  --accent-yellow-dark: #fcd34d;
-  --border-light: #404040;
-  --bg-secondary: #1f1f1f;
-  --bg-tertiary: #2a2a2a;
+  --bg: 9 9 11;
+  --surface: 17 17 20;
+  --elevated: 24 24 28;
+  --line: 39 39 45;
+  --fg: 244 244 245;
+  --muted: 161 161 170;
+  --accent: 45 212 191; /* teal-400 */
+  --accent-fg: 4 47 46;
+  color-scheme: dark;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    margin: 0;
-    font-family: system-ui, -apple-system, sans-serif;
-    background-color: var(--resume-bg);
-    color: var(--resume-text);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    @apply antialiased;
-    transition: background-color 0.3s, color 0.3s;
+    @apply bg-bg font-sans text-fg antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  * {
-    box-sizing: border-box;
+  ::selection {
+    @apply bg-accent/25;
   }
 
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-/* Global component styles */
 @layer components {
-  .card-base {
-    @apply rounded-lg border border-gray-200 dark:border-gray-800 transition-all duration-300;
-    background-color: var(--resume-bg-card);
-    color: var(--resume-text);
+  .section {
+    @apply py-20 md:py-28;
   }
 
-  .card-hover {
-    @apply rounded-lg border transition-all duration-300 hover:shadow-lg dark:hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700;
-    background-color: var(--resume-bg-card);
-    color: var(--resume-text);
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent;
+  }
+
+  .h2 {
+    @apply mt-3 text-3xl font-semibold tracking-tight text-fg md:text-4xl;
+  }
+
+  .lead {
+    @apply mt-4 max-w-prose text-base leading-relaxed text-muted md:text-lg;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-line bg-elevated px-2 py-0.5 font-mono text-[11px] font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-150 disabled:pointer-events-none disabled:opacity-50;
   }
 
   .btn-primary {
-    @apply px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 active:scale-95;
-    background-color: var(--accent-yellow);
-    color: #000;
+    @apply btn bg-accent text-accent-fg hover:bg-accent/90;
   }
 
-  .btn-primary:hover {
-    opacity: 0.9;
+  .btn-ghost {
+    @apply btn border border-line bg-surface text-fg hover:bg-elevated;
   }
 
-  .btn-secondary {
-    @apply px-4 py-2 rounded-full font-semibold border transition-all duration-300 hover:scale-105 active:scale-95;
-    border-color: currentColor;
-    color: var(--resume-primary);
+  .icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-lg border border-line bg-surface text-muted transition-colors hover:bg-elevated hover:text-fg;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r;
-  }
-
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-16;
-  }
-
-  .section-subtitle {
-    @apply text-lg md:text-xl;
-    color: var(--resume-text-secondary);
+  .link {
+    @apply text-fg underline decoration-line underline-offset-4 transition-colors hover:decoration-accent;
   }
 }
 
-
+/* Subtle dotted grid used behind the hero. */
+.bg-grid {
+  background-image: radial-gradient(rgb(var(--fg) / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at top, black 35%, transparent 75%);
+}

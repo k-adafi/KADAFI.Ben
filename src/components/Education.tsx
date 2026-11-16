@@ -1,130 +1,77 @@
-import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageCore';
-import FadeInSection from './FadeInSection';
+import { ArrowUpRight, Award, GraduationCap, HeartHandshake } from 'lucide-react';
+import { useI18n } from '../i18n';
+import { certifications, degrees, engagement } from '../data/career';
+import { Reveal, SectionHeader } from '../lib/ui';
 
-const Education = () => {
-  const { t } = useLanguage();
-  const education = [
-    {
-      year: t('education.items.master.year'),
-      title: t('education.items.master.title'),
-      institution: t('education.items.master.institution'),
-      link: "https://www.univ-toamasina.mg",
-      direction: "up"
-    },
-    {
-      year: t('education.items.licence.year'),
-      title: t('education.items.licence.title'),
-      institution: t('education.items.licence.institution'),
-      direction: "right"
-    },
-    {
-      year: t('education.items.bacc.year'),
-      title: t('education.items.bacc.title'),
-      institution: t('education.items.bacc.institution'),
-      direction: "up"
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
+export default function Education() {
+  const { t, l } = useI18n();
 
   return (
-    <section id="education" className="pt-24 bg-resume-bg dark:bg-resume-bg transition-colors duration-300">
-      <div className="container mx-auto">
-        <FadeInSection direction="left" delay={0.1}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="section-title text-resume-text">
-              {t('education.title')} <span className="text-accent-yellow">{t('education.highlight')}</span>
-            </h2>
-          </motion.div>
-        </FadeInSection>
+    <section id="education" className="section border-t border-line">
+      <div className="container">
+        <SectionHeader eyebrow={t('education.eyebrow')} title={t('education.title')} />
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {education.map((edu, index) => (
-            <FadeInSection key={index} direction={edu.direction} delay={0.2 + index * 0.05}>
-              <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="card-hover group p-6 relative overflow-hidden bg-resume-bg-card dark:bg-resume-bg-card h-full"
-                  whileHover={{
-                    y: -4,
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  {/* Left accent bar */}
-                  <div className="absolute left-0 top-0 h-full w-1 bg-accent-yellow group-hover:w-1.5 transition-all duration-300" />
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <Reveal className="space-y-6" direction="right">
+            <div className="card p-6">
+              <h3 className="flex items-center gap-2 text-sm font-semibold">
+                <GraduationCap size={16} className="text-accent" /> {t('education.degrees')}
+              </h3>
+              <ul className="mt-5 space-y-5">
+                {degrees.map((d) => (
+                  <li key={d.title.en}>
+                    <p className="font-medium">{l(d.title)}</p>
+                    <p className="mt-0.5 text-sm text-muted">{l(d.detail)}</p>
+                    <p className="mt-1 font-mono text-xs text-muted">{l(d.period)}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                <div className="relative pl-4">
-                  {/* Year */}
-                  <motion.p
-                    className="text-accent-yellow font-bold text-sm tracking-wide mb-2"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {edu.year}
-                  </motion.p>
+            <div className="card p-6">
+              <h3 className="flex items-center gap-2 text-sm font-semibold">
+                <HeartHandshake size={16} className="text-accent" /> {t('education.engagement')}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                <a href={engagement.url} target="_blank" rel="noreferrer" className="link font-medium">
+                  {engagement.org}
+                </a>{' '}
+                — {l(engagement.text)}
+              </p>
+            </div>
+          </Reveal>
 
-                  {/* Title */}
-                  <h3 className="text-resume-text font-bold text-lg mb-1 group-hover:text-accent-yellow transition-colors duration-300">
-                    {edu.title}
-                  </h3>
-
-                  {/* Institution */}
-                  <p className="text-resume-text-secondary text-sm mb-4">
-                    {edu.institution}
-                  </p>
-
-                  {/* Link Button */}
-                  {edu.link && (
-                    <motion.a
-                      href={edu.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block btn-primary text-sm"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {t('experience.visit')}
-                    </motion.a>
-                  )}
-                </div>
-              </motion.div>
-            </FadeInSection>
-          ))}
-        </motion.div>
+          <Reveal delay={0.08} direction="left">
+            <div className="card h-full p-6">
+              <h3 className="flex items-center gap-2 text-sm font-semibold">
+                <Award size={16} className="text-accent" /> {t('education.certifications')}
+              </h3>
+              <ul className="mt-3 divide-y divide-line">
+                {certifications.map((c) => (
+                  <li key={c.title.en} className="flex items-center gap-4 py-3">
+                    <span className="w-10 shrink-0 font-mono text-xs text-muted">{c.year}</span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium">{l(c.title)}</p>
+                      <p className="text-xs text-muted">{c.issuer}</p>
+                    </div>
+                    {c.file && (
+                      <a
+                        href={c.file}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex shrink-0 items-center gap-0.5 text-xs text-muted hover:text-accent"
+                        aria-label={`${t('education.view')} — ${l(c.title)}`}
+                      >
+                        {t('education.view')} <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Education;
+}
