@@ -1,7 +1,6 @@
 /** Interface labels. Content (projects, experience…) lives in src/data. */
 export const ui = {
   'nav.about': { fr: 'Profil', en: 'About' },
-  'nav.workflow': { fr: 'Méthode IA', en: 'AI workflow' },
   'nav.projects': { fr: 'Projets', en: 'Projects' },
   'nav.experience': { fr: 'Expérience', en: 'Experience' },
   'nav.skills': { fr: 'Compétences', en: 'Skills' },
@@ -27,8 +26,6 @@ export const ui = {
   'about.facts.languages': { fr: 'Langues', en: 'Languages' },
   'about.facts.focus': { fr: 'Focus', en: 'Focus' },
 
-  'workflow.eyebrow': { fr: 'Développement assisté par IA', en: 'AI-assisted development' },
-  'workflow.title': { fr: "L'agent écrit, je conçois, décide et vérifie.", en: 'The agent writes. I design, decide and verify.' },
 
   'projects.eyebrow': { fr: 'Réalisations', en: 'Selected work' },
   'projects.title': { fr: 'Projets récents', en: 'Recent projects' },
@@ -47,7 +44,6 @@ export const ui = {
   'projects.video': { fr: 'Vidéo de démo', en: 'Demo video' },
   'projects.design': { fr: 'Maquette', en: 'Prototype' },
   'projects.private': { fr: 'Code source privé', en: 'Private source code' },
-  'projects.aiAssisted': { fr: 'Assisté par IA', en: 'AI-assisted' },
   'projects.context': { fr: 'Contexte', en: 'Context' },
   'projects.role': { fr: 'Mon rôle', en: 'My role' },
   'projects.highlights': { fr: 'Points clés', en: 'Highlights' },
@@ -81,8 +77,8 @@ export const ui = {
   'contact.copied': { fr: 'Copié !', en: 'Copied!' },
 
   'footer.built': {
-    fr: 'Conçu et développé avec React, TypeScript, Vite et Tailwind CSS — en développement assisté par IA.',
-    en: 'Designed and built with React, TypeScript, Vite and Tailwind CSS — with AI-assisted development.',
+    fr: 'Conçu et développé avec React, TypeScript, Vite et Tailwind CSS.',
+    en: 'Designed and built with React, TypeScript, Vite and Tailwind CSS.',
   },
   'footer.top': { fr: 'Haut de page', en: 'Back to top' },
 } as const;

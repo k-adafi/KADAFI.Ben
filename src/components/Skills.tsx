@@ -1,5 +1,5 @@
 import { useI18n } from '../i18n';
-import { AI_SKILL, skillGroups } from '../data/career';
+import { skillGroups } from '../data/career';
 import { Reveal, SectionHeader } from '../lib/ui';
 
 export default function Skills() {
@@ -19,9 +19,7 @@ export default function Skills() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className={`rounded-md border px-2.5 py-1 text-sm ${
-                        item === AI_SKILL ? 'border-accent/40 bg-accent-soft text-accent' : 'border-line bg-elevated text-fg'
-                      }`}
+                      className="rounded-md border px-2.5 py-1 text-sm border-line bg-elevated text-fg"
                     >
                       {item}
                     </li>

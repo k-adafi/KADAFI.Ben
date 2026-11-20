@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { kindLabel, type Project } from '../../data/projects';
 import { useI18n } from '../../i18n';
 import { ProjectGallery } from './ProjectMedia';
@@ -110,11 +110,6 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
                   {s}
                 </span>
               ))}
-              {project.aiAssisted && (
-                <span className="chip border-accent/40 bg-accent-soft text-accent">
-                  <Sparkles size={11} className="mr-1" /> {t('projects.aiAssisted')}
-                </span>
-              )}
             </div>
           </div>
 

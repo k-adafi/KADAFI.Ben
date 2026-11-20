@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState, type MouseEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { kindLabel, projects, type Project, type ProjectCategory } from '../../data/projects';
 import { useI18n } from '../../i18n';
 import type { UiKey } from '../../i18n/ui';
@@ -37,11 +37,6 @@ function ProjectCard({ project, large, onOpen }: { project: Project; large: bool
           <span>{l(kindLabel[project.kind])}</span>
           <span aria-hidden>·</span>
           <span>{project.year}</span>
-          {project.aiAssisted && (
-            <span className="ml-auto inline-flex items-center gap-1 normal-case tracking-normal text-accent">
-              <Sparkles size={12} /> {t('projects.aiAssisted')}
-            </span>
-          )}
         </p>
 
         <h3 className="mt-3 text-lg font-semibold tracking-tight transition-colors group-hover:text-accent">{project.name}</h3>

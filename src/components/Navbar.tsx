@@ -11,7 +11,6 @@ import CvLink from './CvLink';
 const links: { id: string; key: UiKey }[] = [
   { id: 'about', key: 'nav.about' },
   { id: 'projects', key: 'nav.projects' },
-  { id: 'workflow', key: 'nav.workflow' },
   { id: 'experience', key: 'nav.experience' },
   { id: 'skills', key: 'nav.skills' },
   { id: 'contact', key: 'nav.contact' },

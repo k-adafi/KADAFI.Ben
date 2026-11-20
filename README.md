@@ -11,8 +11,6 @@ Personal portfolio of **KADAFI Ben**, full-stack developer (TypeScript · React 
 - Framer Motion (respects `prefers-reduced-motion`)
 - Bilingual FR / EN, no i18n dependency
 
-Built with AI-assisted development: I framed each change, reviewed every diff and verified the result.
-
 ## Structure
 
 ```

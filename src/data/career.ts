@@ -109,9 +109,6 @@ export const experience: Job[] = [
   },
 ];
 
-/** Highlighted in the skills grid. */
-export const AI_SKILL = 'AI coding agents';
-
 export const skillGroups: { title: L; items: string[] }[] = [
   { title: { fr: 'Langages', en: 'Languages' }, items: ['TypeScript', 'JavaScript', 'PHP 8', 'Python', 'Java', 'SQL'] },
   {
@@ -127,8 +124,8 @@ export const skillGroups: { title: L; items: string[] }[] = [
     items: ['React Native', 'Android (Java)', 'PyTorch', 'TensorFlow Lite', 'YOLO', 'OpenCV'],
   },
   {
-    title: { fr: 'Méthode & outils', en: 'Workflow & tools' },
-    items: [AI_SKILL, 'Git / GitHub', 'Revue de code', 'RBAC (Spatie)', 'n8n', 'Figma', 'UML / Merise', 'Trello'],
+    title: { fr: 'Outils & pratiques', en: 'Tools & practices' },
+    items: ['Claude Code', 'Git / GitHub', 'Revue de code', 'RBAC (Spatie)', 'n8n', 'Figma', 'UML / Merise', 'Trello'],
   },
 ];
 

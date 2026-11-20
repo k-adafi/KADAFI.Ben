@@ -49,7 +49,6 @@ export interface Project {
   cover?: { from: string; to: string; mark: string };
   links: { live?: string; code?: string; video?: string; design?: string };
   isPrivate?: boolean;
-  aiAssisted?: boolean;
   featured?: boolean;
 }
 
@@ -101,7 +100,6 @@ export const projects: Project[] = [
     cover: { from: '#0d9488', to: '#f59e0b', mark: 'AJ' },
     links: {},
     isPrivate: true,
-    aiAssisted: true,
     featured: true,
   },
   {
@@ -141,7 +139,6 @@ export const projects: Project[] = [
     },
     images: [yestafitaEspace],
     links: { live: 'https://yestafita.org/user/login' },
-    aiAssisted: true,
     featured: true,
   },
   {
@@ -181,7 +178,6 @@ export const projects: Project[] = [
     cover: { from: '#0369a1', to: '#22d3ee', mark: 'Rv' },
     links: {},
     isPrivate: true,
-    aiAssisted: true,
     featured: true,
   },
   {
@@ -220,7 +216,6 @@ export const projects: Project[] = [
     images: [yestafitaSite],
     cover: { from: '#2563eb', to: '#16a34a', mark: 'YT' },
     links: { live: 'https://yestafita.org/' },
-    aiAssisted: true,
     featured: true,
   },
   {
@@ -259,7 +254,6 @@ export const projects: Project[] = [
     images: [jessRedac],
     cover: { from: '#be185d', to: '#f97316', mark: 'JR' },
     links: { live: 'https://jess-redac.com/' },
-    aiAssisted: true,
     featured: true,
   },
   {
